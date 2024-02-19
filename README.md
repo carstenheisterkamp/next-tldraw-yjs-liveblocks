@@ -1,8 +1,10 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# NEXT-TLDRAW-YJS-LIVEBLOCKS 
+Collaborative Drawing app to get myself into collaborative realtime app development.
+Heavily inspired by https://github.com/CTNicholas/wip-liveblocks-tldraw
 
 ## Getting Started
 
-First, run the development server:
+Checkout this repository and run the development server:
 
 ```bash
 npm run dev
@@ -13,6 +15,34 @@ pnpm dev
 # or
 bun dev
 ```
+
+## TLDRAW
+
+tldraw is a library for creating infinite canvas experiences in React https://github.com/tldraw/tldraw
+
+## YJS
+
+Shared data types for building collaborative software
+https://github.com/yjs/yjs
+
+## LIVEBLOCKS
+
+Liveblocks is a real-time collaboration infrastructure for developers.
+https://github.com/liveblocks
+
+Create an .env.local file in the root directory of your codebase.
+Create an account on liveblocks.io
+Create a project
+Copy your public key and secret key from the projects API Keys menu
+Add the keys to the environment variable in the .env.local file as follows:  
+
+`LIVEBLOCKS_PUBLIC_KEY="pk-your public key"`
+`LIVEBLOCKS_SECRET_KEY="sk-your secret key"`
+
+
+## NEXTJS
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
