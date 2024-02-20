@@ -1,9 +1,19 @@
 import Image from "next/image";
 
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+import { ClientSideSuspense } from "@liveblocks/react";
+import { RoomProvider } from "../../liveblocks.config";
+import { TldrawEditor } from "./components/TldrawContainer";
+import { Loading } from "./components/Loading";
 
-    </main>
+export default function Page() {
+  return (
+    <RoomProvider
+      id="tldraw-liveblocks-room"
+      initialPresence={{}}
+    >
+      <ClientSideSuspense fallback=<Loading />>
+        {() => <TldrawEditor />}
+      </ClientSideSuspense>
+    </RoomProvider>
   );
 }
