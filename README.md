@@ -1,7 +1,6 @@
-# NEXT-TLDRAW-YJS-LIVEBLOCKS 
-Collaborative Drawing app to get myself into collaborative realtime app development.
+# WIP NEXT-TLDRAW-YJS-LIVEBLOCKS 
+Collaborative Drawing app to get myself into collaborative realtime app development 
 Heavily inspired by https://github.com/CTNicholas/wip-liveblocks-tldraw
-
 ## Getting Started
 
 Checkout this repository and run the development server:
@@ -30,11 +29,10 @@ https://github.com/yjs/yjs
 Liveblocks is a real-time collaboration infrastructure for developers.
 https://github.com/liveblocks
 
-Create an .env.local file in the root directory of your codebase.
-Create an account on liveblocks.io
-Create a project
-Copy your public key and secret key from the projects API Keys menu
-Add the keys to the environment variable in the .env.local file as follows:  
+- Create an .env.local file in the root directory of your codebase.
+- Create an account on liveblocks.ioCreate a project
+- Copy your public key and secret key from the projects API Keys menu
+- Add the keys to the environment variable in the .env.local file as follows:  
 
 `LIVEBLOCKS_PUBLIC_KEY="pk-your public key"`
 `LIVEBLOCKS_SECRET_KEY="sk-your secret key"`
