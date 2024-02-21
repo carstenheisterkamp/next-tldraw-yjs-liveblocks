@@ -12,9 +12,10 @@
   },
   "dependencies": {
     "@liveblocks/client": "^1.9.8",
+    "@liveblocks/node": "^1.9.8",
     "@liveblocks/react": "^1.9.8",
     "@liveblocks/yjs": "^1.9.8",
-    "@tldraw/tldraw": "^2.0.0-beta.3",
+    "@tldraw/tldraw": "2.0.0-alpha.19",
     "nanoid": "^5.0.5",
     "next": "14.1.0",
     "react": "^18",

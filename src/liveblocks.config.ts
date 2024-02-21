@@ -1,18 +1,18 @@
 import { createClient } from "@liveblocks/client";
 import { createRoomContext } from "@liveblocks/react";
-import { env } from "process";
 
 const client = createClient({
-  publicApiKey: env.LIVEBLOCKS_PUBLIC_KEY!,
-  throttle: 100,
+  authEndpoint: "/api/liveblocks-auth",
+  lostConnectionTimeout: 5000, // 5 seconds default
+  throttle: 16, // 100ms default
+  backgroundKeepAliveTimeout: 15 * 60 * 1000 /* 15 minutes */,
 });
 
 // Presence represents the properties that exist on every user in the Room
 // and that will automatically be kept in sync. Accessible through the
 // `user.presence` property. Must be JSON-serializable.
 type Presence = {
-  // cursor: { x: number, y: number } | null,
-  // ...
+  cursor: { x: number, y: number };
 };
 
 // Optionally, Storage represents the shared document that persists in the
@@ -27,30 +27,54 @@ type Storage = {
 // Optionally, UserMeta represents static/readonly metadata on each user, as
 // provided by your own custom auth back end (if used). Useful for data that
 // will not change during a session, like a user's name or avatar.
-// type UserMeta = {
-//   id?: string,  // Accessible through `user.id`
-//   info?: Json,  // Accessible through `user.info`
-// };
+type UserMeta = {
+  id: string;
+  info: {
+    name: string;
+    avatar: string;
+    colors: string[];
+  }
+};
+
 
 // Optionally, the type of custom events broadcast and listened to in this
 // room. Use a union for multiple events. Must be JSON-serializable.
-// type RoomEvent = {};
+type RoomEvent = {
+  //   chat: { text: string; time: number; user: string };
+  //   ...
+};
 
 // Optionally, when using Comments, ThreadMetadata represents metadata on
 // each thread. Can only contain booleans, strings, and numbers.
-// export type ThreadMetadata = {
-//   resolved: boolean;
-//   quote: string;
-//   time: number;
-// };
+export type ThreadMetadata = {
+  //   resolved: boolean;
+  //   quote: string;
+  //   time: number;
+};
 
 export const {
-  RoomProvider,
-  useMyPresence,
-  useStorage,
-  /* ...all the other hooks you’re using... */
-} = createRoomContext<
-  Presence,
-  Storage
-/* UserMeta, RoomEvent, ThreadMetadata */
->(client);
+  suspense: {
+    RoomProvider,
+    useRoom,
+    useMyPresence,
+    useUpdateMyPresence,
+    useSelf,
+    useOthers,
+    useOthersMapped,
+    useOthersConnectionIds,
+    useOther,
+    useBroadcastEvent,
+    useEventListener,
+    useErrorListener,
+    useStorage,
+    useBatch,
+    useHistory,
+    useUndo,
+    useRedo,
+    useCanUndo,
+    useCanRedo,
+    useMutation,
+    useStatus,
+    useLostConnectionListener,
+  },
+} = createRoomContext<Presence, Storage, UserMeta, RoomEvent, ThreadMetadata>(client, {});
