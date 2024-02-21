@@ -11,7 +11,7 @@ export default function Page() {
 
   return (
     <RoomProvider
-      id={`$room_id`}
+      id="tldrawing_room"
       autoConnect={true}
       initialPresence={{ cursor: { x: 0, y: 0 } }}
       initialStorage={{}}

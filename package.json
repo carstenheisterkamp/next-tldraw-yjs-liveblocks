@@ -10,6 +10,10 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "overrides": {
+    "@tldraw/state": "^2.0.0-alpha.19",
+    "yjs": "^13.6.12"
+  },
   "dependencies": {
     "@liveblocks/client": "^1.9.8",
     "@liveblocks/node": "^1.9.8",
